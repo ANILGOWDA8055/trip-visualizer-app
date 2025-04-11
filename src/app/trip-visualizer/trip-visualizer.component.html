@@ -1,0 +1,18 @@
+<div class="input-area">
+    <input [(ngModel)]="startPoint" placeholder="Start Point" />
+    <input [(ngModel)]="endPoint" placeholder="End Point" />
+    <button (click)="addTrip()">Add Trip</button>
+  </div>
+  
+  <div class="trip-container">
+    <div *ngFor="let trip of trips" [ngClass]="'trip-block level-' + trip.level">
+      <div class="trip-box" [style.background]="trip.color">
+        {{ trip.start }} - {{ trip.end }}
+      </div>
+      <svg *ngIf="trip.arrow" class="arrow-svg" viewBox="0 0 100 20">
+        <line x1="0" y1="10" x2="80" y2="10" stroke="black" stroke-width="2"/>
+        <polygon points="80,5 95,10 80,15" fill="black"/>
+      </svg>
+    </div>
+  </div>
+  
